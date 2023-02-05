@@ -1,7 +1,8 @@
-package Service;
+package com.hdbtool.service;
 
-import Model.User;
 import org.springframework.stereotype.Service;
+
+import com.hdbtool.model.User;
 
 @Service
 public interface UserLoginService {

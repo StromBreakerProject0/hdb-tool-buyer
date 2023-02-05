@@ -1,7 +1,8 @@
-package Repository;
+package com.hdbtool.repository;
 
-import Model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.hdbtool.model.User;
 
 public interface UserRepository extends JpaRepository<User, String> {
 }

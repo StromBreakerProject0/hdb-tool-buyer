@@ -1,4 +1,4 @@
-package Constant;
+package com.hdbtool.constant;
 
 public interface ErrorConstant {
 

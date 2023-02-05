@@ -1,4 +1,4 @@
-package Excetion;
+package com.hdbtool.exception;
 
 
 import lombok.Getter;
