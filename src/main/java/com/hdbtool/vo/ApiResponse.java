@@ -1,15 +1,9 @@
 package com.hdbtool.vo;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
-@RequiredArgsConstructor
-@AllArgsConstructor
+@Data
 public class ApiResponse {
 
 	private Object date;

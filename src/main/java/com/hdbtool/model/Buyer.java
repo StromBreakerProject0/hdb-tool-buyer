@@ -11,35 +11,29 @@ import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
-@Table(name = "user")
+@Table(name = "buyer")
 @EntityListeners(AuditingEntityListener.class)
 @Data
-public class User extends Auditable<String> {
-
+public class Buyer extends Auditable<String>{
+	
 	@Id
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String id;
-
-	@Column(name = "name", nullable = false)
-	private String name;
-
+	
+	@Column(name = "user", nullable = false)
+	private User user;
+	
 	@Column(name = "userType", nullable = false)
 	private UserType userType;
+	
+	@Column(name = "firstName", nullable = false)
+	private String firstName;
+	
+	@Column(name = "lastName", nullable = false)
+	private String lastName;
+	 
 
-	@Column(name = "userName", nullable = false)
-	private String userName;
-
-	private String email;
-	private String phoneNumber;
-
-	@Column(name = "password", nullable = false)
-	private String password;
-
-	@Column(name = "isActive", nullable = false, columnDefinition = "Boolean default true")
-	private Boolean isActive;
 }

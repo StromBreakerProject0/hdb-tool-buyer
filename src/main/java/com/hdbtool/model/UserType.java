@@ -11,14 +11,12 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
 @Table(name = "user_type")
-@Getter
-@Setter
 @EntityListeners(AuditingEntityListener.class)
+@Data
 public class UserType extends Auditable<String>{
 
     @Id

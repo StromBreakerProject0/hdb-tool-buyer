@@ -41,5 +41,5 @@ public abstract class Auditable<U> {
     @LastModifiedDate
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "modifiedOn")
-    protected U modifiedOn;
+    protected Date modifiedOn;
 }
