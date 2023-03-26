@@ -13,9 +13,9 @@ import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name = "buyer")
+@Table(name = "seller")
 @EntityListeners(AuditingEntityListener.class)
-public class Buyer extends Auditable<String> {
+public class Seller extends Auditable<String> {
 
 	@Id
 	@GeneratedValue(generator = "uuid")
@@ -27,8 +27,8 @@ public class Buyer extends Auditable<String> {
 	private User user;
 
 	@OneToOne
-	@JoinColumn(name = "userType")
-	private UserType userType;
+	@JoinColumn(name = "userTypeId")
+	private UserType userTypeId;
 
 	@Column(name = "firstName", nullable = false)
 	private String firstName;
@@ -52,12 +52,12 @@ public class Buyer extends Auditable<String> {
 		this.user = user;
 	}
 
-	public UserType getUserType() {
-		return userType;
+	public UserType getUserTypeId() {
+		return userTypeId;
 	}
 
-	public void setUserType(UserType userType) {
-		this.userType = userType;
+	public void setUserTypeId(UserType userTypeId) {
+		this.userTypeId = userTypeId;
 	}
 
 	public String getFirstName() {

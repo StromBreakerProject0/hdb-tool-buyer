@@ -1,4 +1,4 @@
-package com.hdbtool.vo;
+package com.hddtool.vo;
 
 import lombok.Data;
 import lombok.NonNull;

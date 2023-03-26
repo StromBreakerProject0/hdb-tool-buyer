@@ -5,23 +5,26 @@ import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name = "user_type")
+@Table(name = "product_details")
 @EntityListeners(AuditingEntityListener.class)
-public class UserType extends Auditable<String> {
+public class ProductDetails extends Auditable<String> {
 
 	@Id
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String id;
-
-	@Column(name = "name", nullable = false)
-	private String name;
+	
+	@OneToOne
+	@JoinColumn(name = "sellerId")
+	private Seller sellerId;
 
 	@Column(name = "isActive", nullable = false, columnDefinition = "Boolean default true")
 	private Boolean isActive;
@@ -34,12 +37,12 @@ public class UserType extends Auditable<String> {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public Seller getSellerId() {
+		return sellerId;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setSellerId(Seller sellerId) {
+		this.sellerId = sellerId;
 	}
 
 	public Boolean getIsActive() {

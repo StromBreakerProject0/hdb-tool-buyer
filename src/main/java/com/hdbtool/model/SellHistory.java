@@ -1,30 +1,29 @@
 package com.hdbtool.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name = "user_type")
+@Table(name = "sell_history")
 @EntityListeners(AuditingEntityListener.class)
-public class UserType extends Auditable<String> {
+public class SellHistory extends Auditable<String> {
 
 	@Id
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String id;
-
-	@Column(name = "name", nullable = false)
-	private String name;
-
-	@Column(name = "isActive", nullable = false, columnDefinition = "Boolean default true")
-	private Boolean isActive;
+	
+	@OneToOne
+	@JoinColumn(name = "seller")
+	private Seller seller;
 
 	public String getId() {
 		return id;
@@ -34,20 +33,12 @@ public class UserType extends Auditable<String> {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public Seller getSeller() {
+		return seller;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Boolean getIsActive() {
-		return isActive;
-	}
-
-	public void setIsActive(Boolean isActive) {
-		this.isActive = isActive;
+	public void setSeller(Seller seller) {
+		this.seller = seller;
 	}
 
 }

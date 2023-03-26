@@ -14,32 +14,61 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-@Getter
-@Setter
 @NoArgsConstructor
 public abstract class Auditable<U> {
 
-    @CreatedBy
-    @Column(name = "createdBy")
-    protected U createdBy;
+	@CreatedBy
+	@Column(name = "createdBy")
+	protected U createdBy;
 
-    @CreatedDate
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "createdOn")
-    protected Date createdOn;
+	@CreatedDate
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "createdOn")
+	protected Date createdOn;
 
-    @LastModifiedBy
-    @Column(name = "modifiedBy")
-    protected U modifiedBy;
+	@LastModifiedBy
+	@Column(name = "modifiedBy")
+	protected U modifiedBy;
 
-    @LastModifiedDate
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "modifiedOn")
-    protected Date modifiedOn;
+	@LastModifiedDate
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "modifiedOn")
+	protected Date modifiedOn;
+
+	public U getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(U createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public U getModifiedBy() {
+		return modifiedBy;
+	}
+
+	public void setModifiedBy(U modifiedBy) {
+		this.modifiedBy = modifiedBy;
+	}
+
+	public Date getModifiedOn() {
+		return modifiedOn;
+	}
+
+	public void setModifiedOn(Date modifiedOn) {
+		this.modifiedOn = modifiedOn;
+	}
+
 }

@@ -1,8 +1,8 @@
 spring:
   datasource:
     username: root
-    password: Decypher#0
-    url: jdbc:mysql://localhost:3306/hdb_tool
+    password: Mysql@123
+    url: jdbc:mysql://localhost:3306/hdd_tool
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true
