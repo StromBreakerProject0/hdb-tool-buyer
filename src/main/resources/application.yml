@@ -4,8 +4,21 @@ spring:
     password: Mysql@123
     url: jdbc:mysql://localhost:3306/hdd_tool
     driver-class-name: com.mysql.cj.jdbc.Driver
+    
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: create
     properties.hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+    
+  security:
+    oauth2:
+      client:
+        registration:
+         google:
+          clientId: 11714052990-uiudthein47oqmsh9ne9fkue6fi59tls.apps.googleusercontent.com
+          clientSecret: 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
+          scope:
+           - email
+           - profile
+    

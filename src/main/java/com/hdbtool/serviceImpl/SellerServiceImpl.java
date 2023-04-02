@@ -1,6 +1,6 @@
 package com.hdbtool.serviceImpl;
 
-import org.jvnet.hk2.annotations.Service;
+import org.springframework.stereotype.Service;
 
 import com.hdbtool.dto.BuyerDetailsDTO;
 import com.hdbtool.service.SellerService;

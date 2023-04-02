@@ -1,46 +1,72 @@
 package com.hdbtool.exception;
 
+public class ApiException extends RuntimeException {
 
-import lombok.Getter;
-import lombok.Setter;
+	private static final long serialVersionUID = -4805738974378459091L;
 
-@Getter
-@Setter
-public class ApiException extends RuntimeException{
+	public ApiException(String e) {
+		super(e);
+	}
 
-    private static final long serialVersionUID = -4805738974378459091L;
+	private String errorCode;
+	private String errorMessage;
+	private String errorDescription;
+	private int status;
 
-	public ApiException(String e){
-        super(e);
-    }
+	public ApiException() {
+		super();
+	}
 
-    private String errorCode;
-    private String errorMessage;
-    private String errorDescription;
-    private int status;
+	public ApiException(String errorCode, String errorMessage) {
+		super();
+		this.errorCode = errorCode;
+		this.errorMessage = errorMessage;
+	}
 
-    public ApiException(){
-        super();
-    }
+	public ApiException(String errorCode, String errorMessage, int status) {
+		super();
+		this.errorCode = errorCode;
+		this.errorMessage = errorMessage;
+		this.status = status;
+	}
 
-    public ApiException(String errorCode, String errorMessage){
-        super();
-        this.errorCode = errorCode;
-        this.errorMessage = errorMessage;
-    }
+	public ApiException(String errorCode, String errorMessage, String errorDescription) {
+		super();
+		this.errorCode = errorCode;
+		this.errorMessage = errorMessage;
+		this.errorDescription = errorDescription;
+	}
 
-    public ApiException(String errorCode, String errorMessage, int status){
-        super();
-        this.errorCode = errorCode;
-        this.errorMessage = errorMessage;
-        this.status = status;
-    }
+	public String getErrorCode() {
+		return errorCode;
+	}
 
-    public ApiException(String errorCode, String errorMessage, String errorDescription){
-        super();
-        this.errorCode = errorCode;
-        this.errorMessage = errorMessage;
-        this.errorDescription = errorDescription;
-    }
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
+	}
+
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+	public String getErrorDescription() {
+		return errorDescription;
+	}
+
+	public void setErrorDescription(String errorDescription) {
+		this.errorDescription = errorDescription;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
 
 }
